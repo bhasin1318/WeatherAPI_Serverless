@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/WeatherAPI_serverless/dev/1523529218973-2018-04-12T10:33:38.973Z/WeatherAPI_serverless.zip"
+                "S3Key": "serverless/WeatherAPI_serverless/dev/1523529344089-2018-04-12T10:35:44.089Z/WeatherAPI_serverless.zip"
               },
               "FunctionName": "WeatherAPI_serverless-dev-app",
               "Handler": "app.handler",
@@ -242,7 +242,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523529218996": {
+          "ApiGatewayDeployment1523529344114": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -352,10 +352,10 @@
         "vpc": {}
       }
     },
-    "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/WeatherAPI_serverless.zip"
+    "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPIServerless/.serverless/WeatherAPI_serverless.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/WeatherAPI_serverless/dev/1523529218973-2018-04-12T10:33:38.973Z",
+    "artifactDirectoryName": "serverless/WeatherAPI_serverless/dev/1523529344089-2018-04-12T10:35:44.089Z",
     "artifact": "WeatherAPI_serverless.zip"
   }
 }

@@ -1,6 +1,6 @@
 # serverless.yml
 
-service: WeatherAPI_serverless
+service: WeatherAPIServerless
 
 provider:
   name: aws
