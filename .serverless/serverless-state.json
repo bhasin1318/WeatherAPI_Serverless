@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-server/dev/1523527543693-2018-04-12T10:05:43.693Z/express-server.zip"
+                "S3Key": "serverless/express-server/dev/1523528522038-2018-04-12T10:22:02.038Z/express-server.zip"
               },
               "FunctionName": "express-server-dev-app",
               "Handler": "app.handler",
@@ -146,6 +146,33 @@
               }
             }
           },
+          "ApiGatewayResourceGetweather": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "getWeather",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceGetweatherCity": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceGetweather"
+              },
+              "PathPart": ":city",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
           "ApiGatewayResourceProxyVar": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
@@ -161,16 +188,13 @@
               }
             }
           },
-          "ApiGatewayMethodAny": {
+          "ApiGatewayMethodGetweatherCityAny": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "ANY",
               "RequestParameters": {},
               "ResourceId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
+                "Ref": "ApiGatewayResourceGetweatherCity"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -242,7 +266,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523527543718": {
+          "ApiGatewayDeployment1523528522065": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -251,7 +275,7 @@
               "StageName": "dev"
             },
             "DependsOn": [
-              "ApiGatewayMethodAny",
+              "ApiGatewayMethodGetweatherCityAny",
               "ApiGatewayMethodProxyVarAny"
             ]
           },
@@ -341,7 +365,7 @@
         "handler": "app.handler",
         "events": [
           {
-            "http": "ANY /"
+            "http": "ANY /getWeather/:city"
           },
           {
             "http": "ANY {proxy+}"
@@ -355,7 +379,7 @@
     "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/express-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-server/dev/1523527543693-2018-04-12T10:05:43.693Z",
+    "artifactDirectoryName": "serverless/express-server/dev/1523528522038-2018-04-12T10:22:02.038Z",
     "artifact": "express-server.zip"
   }
 }

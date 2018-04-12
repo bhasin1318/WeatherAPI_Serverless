@@ -1,6 +1,6 @@
 # serverless.yml
 
-service: express-server
+service: express-app
 
 provider:
   name: aws
