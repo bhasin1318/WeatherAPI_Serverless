@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "express-app",
+    "service": "express-server",
     "serviceObject": {
-      "name": "express-app"
+      "name": "express-server"
     },
     "provider": {
       "stage": "dev",
@@ -22,7 +22,7 @@
           "AppLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/express-app-dev-app"
+              "LogGroupName": "/aws/lambda/express-server-dev-app"
             }
           },
           "IamRoleLambdaExecution": {
@@ -51,7 +51,7 @@
                       "-",
                       [
                         "dev",
-                        "express-app",
+                        "express-server",
                         "lambda"
                       ]
                     ]
@@ -66,7 +66,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-app-dev-app:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-server-dev-app:*"
                           }
                         ]
                       },
@@ -77,7 +77,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-app-dev-app:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-server-dev-app:*:*"
                           }
                         ]
                       }
@@ -90,7 +90,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "express-app",
+                    "express-server",
                     "dev",
                     "us-east-1",
                     "lambdaRole"
@@ -106,9 +106,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app/dev/1523527367266-2018-04-12T10:02:47.266Z/express-app.zip"
+                "S3Key": "serverless/express-server/dev/1523527543693-2018-04-12T10:05:43.693Z/express-server.zip"
               },
-              "FunctionName": "express-app-dev-app",
+              "FunctionName": "express-server-dev-app",
               "Handler": "app.handler",
               "MemorySize": 1024,
               "Role": {
@@ -125,7 +125,7 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersion7CNl504m3pyi9kKVOKTNK2a3TtdOkERnZ6MzqsUqiu0": {
+          "AppLambdaVersion3MZkpraDyjRyVAJxVd9tD5ABnRw0qP8vjCqcMy0w": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
@@ -138,7 +138,7 @@
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-express-app",
+              "Name": "dev-express-server",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -242,7 +242,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523527367292": {
+          "ApiGatewayDeployment1523527543718": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -298,7 +298,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersion7CNl504m3pyi9kKVOKTNK2a3TtdOkERnZ6MzqsUqiu0"
+              "Ref": "AppLambdaVersion3MZkpraDyjRyVAJxVd9tD5ABnRw0qP8vjCqcMy0w"
             }
           },
           "ServiceEndpoint": {
@@ -347,15 +347,15 @@
             "http": "ANY {proxy+}"
           }
         ],
-        "name": "express-app-dev-app",
+        "name": "express-server-dev-app",
         "package": {},
         "vpc": {}
       }
     },
-    "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/express-app.zip"
+    "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/express-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-app/dev/1523527367266-2018-04-12T10:02:47.266Z",
-    "artifact": "express-app.zip"
+    "artifactDirectoryName": "serverless/express-server/dev/1523527543693-2018-04-12T10:05:43.693Z",
+    "artifact": "express-server.zip"
   }
 }
