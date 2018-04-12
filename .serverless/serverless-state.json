@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "express-app",
+    "service": "WeatherAPI_serverless",
     "serviceObject": {
-      "name": "express-app"
+      "name": "WeatherAPI_serverless"
     },
     "provider": {
       "stage": "dev",
@@ -22,7 +22,7 @@
           "AppLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/express-app-dev-app"
+              "LogGroupName": "/aws/lambda/WeatherAPI_serverless-dev-app"
             }
           },
           "IamRoleLambdaExecution": {
@@ -51,7 +51,7 @@
                       "-",
                       [
                         "dev",
-                        "express-app",
+                        "WeatherAPI_serverless",
                         "lambda"
                       ]
                     ]
@@ -66,7 +66,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-app-dev-app:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/WeatherAPI_serverless-dev-app:*"
                           }
                         ]
                       },
@@ -77,7 +77,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/express-app-dev-app:*:*"
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/WeatherAPI_serverless-dev-app:*:*"
                           }
                         ]
                       }
@@ -90,7 +90,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "express-app",
+                    "WeatherAPI_serverless",
                     "dev",
                     "us-east-1",
                     "lambdaRole"
@@ -106,9 +106,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app/dev/1523528833269-2018-04-12T10:27:13.269Z/express-app.zip"
+                "S3Key": "serverless/WeatherAPI_serverless/dev/1523529218973-2018-04-12T10:33:38.973Z/WeatherAPI_serverless.zip"
               },
-              "FunctionName": "express-app-dev-app",
+              "FunctionName": "WeatherAPI_serverless-dev-app",
               "Handler": "app.handler",
               "MemorySize": 1024,
               "Role": {
@@ -125,7 +125,7 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersionu0Du3EPSENpiY1haHBvEO18FaVAzmhHjzHIvpMM3Ss": {
+          "AppLambdaVersionjhdYFTcXTqg7iWlbmjRdrgQAgEk4jlNz8VrZ0Kg0pg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
@@ -138,7 +138,7 @@
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-express-app",
+              "Name": "dev-WeatherAPI_serverless",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -242,7 +242,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523528833294": {
+          "ApiGatewayDeployment1523529218996": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -298,7 +298,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionu0Du3EPSENpiY1haHBvEO18FaVAzmhHjzHIvpMM3Ss"
+              "Ref": "AppLambdaVersionjhdYFTcXTqg7iWlbmjRdrgQAgEk4jlNz8VrZ0Kg0pg"
             }
           },
           "ServiceEndpoint": {
@@ -347,15 +347,15 @@
             "http": "ANY {proxy+}"
           }
         ],
-        "name": "express-app-dev-app",
+        "name": "WeatherAPI_serverless-dev-app",
         "package": {},
         "vpc": {}
       }
     },
-    "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/express-app.zip"
+    "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/WeatherAPI_serverless.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-app/dev/1523528833269-2018-04-12T10:27:13.269Z",
-    "artifact": "express-app.zip"
+    "artifactDirectoryName": "serverless/WeatherAPI_serverless/dev/1523529218973-2018-04-12T10:33:38.973Z",
+    "artifact": "WeatherAPI_serverless.zip"
   }
 }
