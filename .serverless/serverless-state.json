@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app/dev/1523528701987-2018-04-12T10:25:01.987Z/express-app.zip"
+                "S3Key": "serverless/express-app/dev/1523528833269-2018-04-12T10:27:13.269Z/express-app.zip"
               },
               "FunctionName": "express-app-dev-app",
               "Handler": "app.handler",
@@ -125,14 +125,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersion7CNl504m3pyi9kKVOKTNK2a3TtdOkERnZ6MzqsUqiu0": {
+          "AppLambdaVersionu0Du3EPSENpiY1haHBvEO18FaVAzmhHjzHIvpMM3Ss": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "sYHMD1QVAr5j6DyFVFDLLi82ldlOlIpBg6gbXYnh49g="
+              "CodeSha256": "zSpDdM1lAliO1+2O/ljITVIqWBR+RK1tIcKpphnHvZQ="
             }
           },
           "ApiGatewayRestApi": {
@@ -143,33 +143,6 @@
                 "Types": [
                   "EDGE"
                 ]
-              }
-            }
-          },
-          "ApiGatewayResourceGetweather": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
-              },
-              "PathPart": "getWeather",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayResourceGetweatherCity": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Ref": "ApiGatewayResourceGetweather"
-              },
-              "PathPart": ":city",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
               }
             }
           },
@@ -188,13 +161,16 @@
               }
             }
           },
-          "ApiGatewayMethodGetweatherCityAny": {
+          "ApiGatewayMethodAny": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "ANY",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceGetweatherCity"
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -266,7 +242,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523528702012": {
+          "ApiGatewayDeployment1523528833294": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -275,7 +251,7 @@
               "StageName": "dev"
             },
             "DependsOn": [
-              "ApiGatewayMethodGetweatherCityAny",
+              "ApiGatewayMethodAny",
               "ApiGatewayMethodProxyVarAny"
             ]
           },
@@ -322,7 +298,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersion7CNl504m3pyi9kKVOKTNK2a3TtdOkERnZ6MzqsUqiu0"
+              "Ref": "AppLambdaVersionu0Du3EPSENpiY1haHBvEO18FaVAzmhHjzHIvpMM3Ss"
             }
           },
           "ServiceEndpoint": {
@@ -365,7 +341,7 @@
         "handler": "app.handler",
         "events": [
           {
-            "http": "ANY /getWeather/:city"
+            "http": "ANY /"
           },
           {
             "http": "ANY {proxy+}"
@@ -379,7 +355,7 @@
     "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/express-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-app/dev/1523528701987-2018-04-12T10:25:01.987Z",
+    "artifactDirectoryName": "serverless/express-app/dev/1523528833269-2018-04-12T10:27:13.269Z",
     "artifact": "express-app.zip"
   }
 }
