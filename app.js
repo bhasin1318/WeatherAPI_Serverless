@@ -3,10 +3,14 @@ var weather = require('./weather.js')
 var app = express()
 var bodyParser = require('body-parser')
 var _ = require('underscore')
+const serverless = require('serverless-http');
+
 
 var PORT = process.env.PORT || 3000
 var todos = []
 var todoNextId = 1
+module.exports.handler = serverless(app);.
+
 
 app.use(bodyParser.json())
 

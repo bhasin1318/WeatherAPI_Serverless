@@ -12,5 +12,5 @@ functions:
   app:
     handler: app.handler
     events:
-      - http: ANY /getWeather/:city
+      - http: ANY /
       - http: 'ANY {proxy+}'
