@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/express-app/dev/1523527086446-2018-04-12T09:58:06.446Z/express-app.zip"
+                "S3Key": "serverless/express-app/dev/1523527367266-2018-04-12T10:02:47.266Z/express-app.zip"
               },
               "FunctionName": "express-app-dev-app",
               "Handler": "app.handler",
@@ -242,7 +242,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1523527086472": {
+          "ApiGatewayDeployment1523527367292": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -355,7 +355,7 @@
     "artifact": "/Users/karbhasin/Desktop/node-course/WeatherAPI_Serverless/.serverless/express-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/express-app/dev/1523527086446-2018-04-12T09:58:06.446Z",
+    "artifactDirectoryName": "serverless/express-app/dev/1523527367266-2018-04-12T10:02:47.266Z",
     "artifact": "express-app.zip"
   }
 }
